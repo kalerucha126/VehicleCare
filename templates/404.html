@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Not Found · VehicleCare{% endblock %}
+{% block content %}
+<h1>404</h1>
+<p class="text-muted">That vehicle or service record doesn't exist.</p>
+<a href="{{ url_for('list_vehicles') }}">&larr; Back to vehicles</a>
+{% endblock %}

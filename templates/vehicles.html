@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Vehicles · VehicleCare{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1>Vehicles</h1>
+  <a href="{{ url_for('add_vehicle') }}" class="btn btn-primary">+ Add Vehicle</a>
+</div>
+
+{% if vehicles %}
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>License Plate</th>
+        <th>Owner</th>
+        <th># Services</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for v in vehicles %}
+      <tr>
+        <td>{{ v.make }}</td>
+        <td>{{ v.model }}</td>
+        <td>{{ v.year }}</td>
+        <td>{{ v.license_plate }}</td>
+        <td>{{ v.owner_name }}</td>
+        <td>{{ v.services|length }}</td>
+        <td><a href="{{ url_for('vehicle_detail', vehicle_id=v.id) }}" class="btn btn-sm btn-outline-secondary">View</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="text-muted">No vehicles yet. <a href="{{ url_for('add_vehicle') }}">Add your first one</a>.</p>
+{% endif %}
+{% endblock %}

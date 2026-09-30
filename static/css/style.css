@@ -1,0 +1,17 @@
+body {
+  background-color: #f7f8fa;
+}
+
+.card .display-6 {
+  font-weight: 700;
+}
+
+.navbar-brand {
+  font-weight: 600;
+}
+
+footer code {
+  background: #eee;
+  padding: 1px 6px;
+  border-radius: 4px;
+}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Edit Service · VehicleCare{% endblock %}
+{% block content %}
+<h1 class="mb-4">Edit Service Record — {{ vehicle.make }} {{ vehicle.model }}</h1>
+<form method="post" class="col-md-6">
+  <div class="mb-3">
+    <label class="form-label">Service Type</label>
+    <input type="text" name="service_type" class="form-control" value="{{ service.service_type }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Date</label>
+    <input type="date" name="date" class="form-control" value="{{ service.date }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Cost</label>
+    <input type="number" step="0.01" name="cost" class="form-control" value="{{ service.cost }}">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Notes</label>
+    <textarea name="notes" class="form-control" rows="3">{{ service.notes }}</textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Next Due Date</label>
+    <input type="date" name="next_due_date" class="form-control" value="{{ service.next_due_date }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+  <a href="{{ url_for('vehicle_detail', vehicle_id=vehicle.id) }}" class="btn btn-outline-secondary">Cancel</a>
+</form>
+{% endblock %}

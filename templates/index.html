@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · VehicleCare{% endblock %}
+{% block content %}
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="row mb-4">
+  <div class="col-md-4">
+    <div class="card text-white bg-primary">
+      <div class="card-body">
+        <h5 class="card-title">Total Vehicles</h5>
+        <p class="display-6">{{ vehicle_count }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-white bg-warning">
+      <div class="card-body">
+        <h5 class="card-title">Upcoming Services</h5>
+        <p class="display-6">{{ upcoming|length }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h4 mb-3">Upcoming &amp; overdue services (next 30 days)</h2>
+{% if upcoming %}
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Vehicle</th>
+        <th>Service</th>
+        <th>Due date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in upcoming %}
+      <tr>
+        <td><a href="{{ url_for('vehicle_detail', vehicle_id=item.vehicle.id) }}">{{ item.vehicle.make }} {{ item.vehicle.model }}</a></td>
+        <td>{{ item.service.service_type }}</td>
+        <td>{{ item.service.next_due_date }}</td>
+        <td>
+          {% if item.days_remaining < 0 %}
+            <span class="badge bg-danger">Overdue by {{ -item.days_remaining }} days</span>
+          {% else %}
+            <span class="badge bg-success">In {{ item.days_remaining }} days</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p class="text-muted">Nothing due soon. Add a service record with a "next due date" to see it here.</p>
+{% endif %}
+{% endblock %}
