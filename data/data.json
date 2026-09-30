@@ -1,5 +1,15 @@
 {
-  "vehicles": [],
-  "next_vehicle_id": 2,
+  "vehicles": [
+    {
+      "id": 2,
+      "make": "Oil Change",
+      "model": "Mahindra Thar",
+      "year": "1901",
+      "license_plate": "MH61AB9876",
+      "owner_name": "Rucha Kale",
+      "services": []
+    }
+  ],
+  "next_vehicle_id": 3,
   "next_service_id": 2
 }
