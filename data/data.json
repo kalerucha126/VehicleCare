@@ -1,24 +1,5 @@
 {
-  "vehicles": [
-    {
-      "id": 2,
-      "make": "Oil Change",
-      "model": "Mahindra Thar",
-      "year": "1901",
-      "license_plate": "MH61AB9876",
-      "owner_name": "Rucha Kale",
-      "services": [
-        {
-          "id": 2,
-          "service_type": "Oil Change",
-          "date": "2026-10-20",
-          "cost": "7000",
-          "notes": "na",
-          "next_due_date": "2026-10-14"
-        }
-      ]
-    }
-  ],
+  "vehicles": [],
   "next_vehicle_id": 3,
   "next_service_id": 3
 }
