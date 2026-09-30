@@ -11,7 +11,7 @@ A small Flask web app to track vehicles and their maintenance/service history.
 - Current git commit shown in the site footer
 
 ## Tech stack
-- Backend: Python + Flask
+- Backend: Python + Flask + VS Code
 - Frontend: HTML + Bootstrap 5
 - Storage: JSON file (`data/data.json`) — no database
 - Tests: pytest
